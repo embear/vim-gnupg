@@ -462,10 +462,11 @@ function s:GPGEncrypt()
   set bin
 
   " guard for unencrypted files
-  if (!exists("b:GPGEncrypted") || b:GPGEncrypted == 0)
+  if (exists("b:GPGEncrypted") && b:GPGEncrypted == 0)
     echohl GPGError
-    let blackhole = input("Message could not be encrypted! File might be empty! (Press ENTER)")
+    let blackhole = input("File will not be encrypted! (Press ENTER)")
     echohl None
+    call s:GPGDebug(2, "file is not encrypted")
     call s:GPGDebug(3, "<<<<<<<< Leaving s:GPGEncrypt()")
     return
   endif
@@ -555,6 +556,7 @@ function s:GPGEncryptPost()
 
   " guard for unencrypted files
   if (exists("b:GPGEncrypted") && b:GPGEncrypted == 0)
+    call s:GPGDebug(2, "file is not encrypted")
     call s:GPGDebug(3, "<<<<<<<< Leaving s:GPGEncryptPost()")
     return
   endif
