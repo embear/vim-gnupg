@@ -119,6 +119,7 @@
 "   - Tim Swast for patch to generate signed files.
 "   - James Vega for patches for better '*.asc' handling, better filename
 "     escaping and better handling of multiple keyrings.
+"   - Dan Brooks for patch to fix a bug with new symmetric encrypted files.
 "
 " Section: Plugin header {{{1
 
