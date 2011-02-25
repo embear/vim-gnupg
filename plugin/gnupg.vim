@@ -188,6 +188,11 @@ function s:GPGInit()
   " we don't want a swap file, as it writes unencrypted data to disk
   set noswapfile
 
+  " turn off undo file, as it will contain unencrypted data to disk
+  if has("+undofile")
+    set undofile=
+  endif
+
   " check what gpg command to use
   if (!exists("g:GPGExecutable"))
     let g:GPGExecutable = "gpg --trust-model always"
