@@ -1,5 +1,5 @@
 " Name:    gnupg.vim
-" Version: $Id$
+" Version: 0.1.0
 " Author:  Markus Braun <markus.braun@krawel.de>
 " Summary: Vim plugin for transparent editing of gpg encrypted files.
 " Licence: This program is free software; you can redistribute it and/or
@@ -127,7 +127,7 @@
 if (exists("g:loaded_gnupg") || &cp || exists("#BufReadPre#*.\(gpg\|asc\|pgp\)"))
   finish
 endif
-let g:loaded_gnupg = "$Revision$"
+let g:loaded_gnupg = 1
 
 " check for correct vim version {{{2
 if (v:version < 700)
